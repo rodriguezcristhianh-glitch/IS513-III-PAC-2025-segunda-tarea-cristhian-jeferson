@@ -64,35 +64,38 @@ class _LoginState extends State<Login> {
 
           SizedBox( height: 35),
 
-          // 
+          // TextField para la contraseña
           TextField(
             controller: passwordController,
             decoration: InputDecoration(
               label: Text('password'),
               hint: Text('Example: /Messi10'),
-              
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
+
+              // Anclaremos un icono al final del TextField, con la funcionalidad de mostrar u ocultar la contraseña
               suffixIcon: IconButton(
-                onPressed: (){
-                setState(() {
-                      _hidePassword = !_hidePassword;
-                    });
-                  },
-                  icon: Icon(
-                    _hidePassword 
-                      ? Icons.visibility_off_outlined 
-                      : Icons.visibility_outlined,
-                  ),
-              
+                onPressed: ()
+                {
+                  setState(() 
+                  {
+                    _hidePassword = !_hidePassword;
+                  });
+                },
+                icon: Icon(
+                  _hidePassword 
+                    ? Icons.visibility_off_outlined 
+                    : Icons.visibility_outlined,
+                ),
               ),
               //suffixIcon: Icon(Icons.vi sibility_outlined),
             ),
             maxLines: 1,
             maxLength: 50,
             
-            keyboardType: TextInputType.text, // Cambiado aquí
+            obscureText: _hidePassword,
+            keyboardType: TextInputType.visiblePassword, // Cambiado aquí
           ),
         ],
       ),
