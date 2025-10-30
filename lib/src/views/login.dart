@@ -1,4 +1,3 @@
-//import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/src/shared/utils.dart';
@@ -8,13 +7,13 @@ class Login extends StatefulWidget
   const Login({super.key});
   @override
   State<Login> createState() => _LoginState();
-  
 }
 
 class _LoginState extends State<Login> 
 {
   //final userInput = TextField();
-  Map<String, String> users = {
+  Map<String, String> users = 
+  {
     'cristhian@unah.hn': '20242000001',
     'jeferson@unah.hn': '20242000327',
     'maynor@unah.hn': '20242000002',
@@ -38,28 +37,10 @@ class _LoginState extends State<Login>
   @override
   Widget build(BuildContext context) 
   {
-    return Scaffold(
-      //backgroundColor: Colors.lightBlue,
-        /*appBar: AppBar(
-        title: Text('Login', style: TextStyle(color: const Color.fromARGB(218, 3, 49, 58), fontWeight: FontWeight.bold, fontSize: 25)),
-
-        elevation: 10,
-        backgroundColor: const Color.fromARGB(218, 24, 133, 155),
-        leading: Icon(Icons.person_2_sharp),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.settings,
-              color: const Color.fromARGB(218, 3, 49, 58),
-            ),
-          ),
-          
-          //IconButton(onPressed: () {}, icon: Icon(Icons.verified_user_sharp)),
-        ],*/
-      //),
-
-      body: Column(
+    return Scaffold
+    (
+      body: Column
+      (
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: 
@@ -79,7 +60,6 @@ class _LoginState extends State<Login>
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
-              //prefixIcon: Icon(Icons.text_fields_rounded),
             ),
             maxLines: 1,
             maxLength: 50,
@@ -93,18 +73,19 @@ class _LoginState extends State<Login>
           Text("Password", style: TextStyle(color: const Color.fromARGB(218, 3, 49, 58), fontWeight: FontWeight.bold, fontSize: 25, letterSpacing: 7)),
           SizedBox(height: 8),
           // TextField para la contraseña, debemos considerar que sea minimo de 6 caracteres y que incluya un caracter especial
-          TextField(
+          TextField
+          (
             controller: passwordController,
             style: TextStyle(color: _color),
-            decoration: InputDecoration(
+            decoration: InputDecoration
+            (
               //label: Text('password'),
               hint: Text('Example: /Messi10'),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
 
               // Anclaremos un icono al final del TextField, con la funcionalidad de mostrar u ocultar la contraseña
-              suffixIcon: IconButton(
+              suffixIcon: IconButton
+              (
                 onPressed: ()
                 {
                   setState(() 
@@ -112,7 +93,8 @@ class _LoginState extends State<Login>
                     _hidePassword = !_hidePassword;
                   });
                 },
-                icon: Icon(
+                icon: Icon
+                (
                   _hidePassword 
                     ? Icons.visibility_off_outlined 
                     : Icons.visibility_outlined,
@@ -140,7 +122,6 @@ class _LoginState extends State<Login>
                     print("Usuario: ${userController.text}");
                     print("Contraseña: ${passwordController.text}");
 
-                    //context.pop();
                     context.go('/todos');
                     break;
                   }
@@ -151,13 +132,12 @@ class _LoginState extends State<Login>
                 {
                   _color = Colors.red;
                   
-                  Utils.showSnackBar(
+                  Utils.showSnackBar
+                  (
                     context: context, 
                     title: "Email or password are incorrect",
                     color: Colors.red,
                   );
-
-                  //userController.selection.;
                 });
             },
             style: TextButton.styleFrom(
@@ -172,32 +152,14 @@ class _LoginState extends State<Login>
       ),
       SizedBox(height: 20),
       Text("You don't have an account yet? Create your account", style: TextStyle(color: const Color.fromARGB(218, 3, 49, 58), fontWeight: FontWeight.bold, fontSize: 16)),
-      TextButton(onPressed: (){context.goNamed("signin");}, child: Text('here.', style: TextStyle(color: Colors.blue, fontSize: 16))),
+      TextButton(onPressed: ()
+      {
+        context.go('/signin');
+        print("Navegando a la pantalla de registro");
+      },
+      child: Text('here.', style: TextStyle(color: Colors.blue, fontSize: 16))),
       ],
       ),
     );
   }
 }
-
-/* Para el Login
-TextButton(
-            onPressed: () 
-            {
-              if (userRegex.hasMatch(userController.text) && passwordRegex.hasMatch(passwordController.text)) // En caso de cumplir con los requerimientos
-              {
-                print("Login exitoso");
-                print("Usuario: ${userController.text}");
-                print("Contraseña: ${passwordController.text}");
-
-                //context.pop();
-                context.go('/todos');
-              }
-              else
-              {
-                // Mostramos los bordes del TextField en rojo e indicamos los posibles errores del usuario
-                setState(() 
-                {
-                  _color = Colors.red;
-                  //userController.selection.;
-                });
-*/

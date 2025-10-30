@@ -10,6 +10,45 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              child: Column(
+            
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.red[50],
+                    radius: 40,
+                    child: Text(
+                      'JAJA',
+                      style: TextStyle(fontSize: 42, color: Colors.red[400]),
+                    ),
+                  ),
+                  Text('User'),
+                 
+                 
+
+                ],
+              ),
+            ),
+             Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: ListTile(
+                        title: Text('Cerrar Sesion'),
+                        leading:IconButton(onPressed: (){context.goNamed("login");}, 
+                        icon: Icon(Icons.logout),
+                         iconSize: 32,),
+                    ),
+                  ),          
+                  
+          ],
+        ),
+      ),
+       
       appBar: AppBar(title: const Text('TODO-App')),
       body: ListView.builder(
         itemCount: todoList.length,

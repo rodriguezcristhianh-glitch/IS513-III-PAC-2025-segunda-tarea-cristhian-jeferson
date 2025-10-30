@@ -14,10 +14,13 @@ class MyApp extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
-    return MaterialApp.router(
-      routerConfig: GoRouter(
-        initialLocation: '/login',
-        routes: [
+    return MaterialApp.router
+    (
+      routerConfig: GoRouter
+      (
+        initialLocation: '/todos',
+        routes: 
+        [
           GoRoute(
             path: '/login',
             name: 'login',
@@ -26,13 +29,14 @@ class MyApp extends StatelessWidget
           GoRoute(
             path: '/signin',
             name: 'signin',
-            builder: (context, state) => SignIn()
-          ),
+            builder: (context, state) => signIn()
+          ), 
           GoRoute(
             path: '/todos',
             name: 'todo-list',
             builder: (state, context) => HomePage(),
-            routes: [
+            routes: 
+            [
               GoRoute(
                 path: '/create', //?   /todos/create
                 name: 'new-todo',
@@ -41,7 +45,8 @@ class MyApp extends StatelessWidget
               GoRoute(
                 path: '/:id', //?   /todos/124
                 name: 'update-todo',
-                builder: (context, state) {
+                builder: (context, state) 
+                {
                   //print(state.pathParameters);
                   final todo = state.extra as Map<String, dynamic>;
 
@@ -53,13 +58,7 @@ class MyApp extends StatelessWidget
         ],
       ),
       debugShowCheckedModeBanner: false,
-      title: 'Todo - App',
-      // initialRoute: '/',
-      // home: AdminTodoPage(), // mi primer widget personalizado
-      // routes: {
-      //   '/': (context) => HomePage(),
-      //   '/admin-todos': (context) => AdminTodoPage(),
-      // },
+      title: 'Todo - App'
     );
   }
 }
