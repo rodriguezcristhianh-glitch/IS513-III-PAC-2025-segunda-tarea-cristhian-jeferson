@@ -82,7 +82,6 @@ class AdminTodoPage extends StatelessWidget
         //TODO: mostrar icono de carga usando gestores de estado
         onPressed: () 
         {
-
           if (titleController.text.isEmpty) 
           {
             // ScaffoldMessenger.of(context).showSnackBar(

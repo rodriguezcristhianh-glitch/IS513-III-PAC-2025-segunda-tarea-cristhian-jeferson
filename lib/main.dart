@@ -3,14 +3,17 @@ import 'package:go_router/go_router.dart';
 import 'package:todo_app/src/views/admin_todo_page.dart';
 import 'package:todo_app/src/views/home_page.dart';
 import 'package:todo_app/src/views/login.dart';
+import 'package:todo_app/src/views/sign_in.dart';
 
 void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget 
+{
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) 
+  {
     return MaterialApp.router(
       routerConfig: GoRouter(
         initialLocation: '/login',
@@ -20,7 +23,11 @@ class MyApp extends StatelessWidget {
             name: 'login',
             builder: (context, state) => Login()
           ), 
-
+          GoRoute(
+            path: '/signin',
+            name: 'signin',
+            builder: (context, state) => SignIn()
+          ),
           GoRoute(
             path: '/todos',
             name: 'todo-list',

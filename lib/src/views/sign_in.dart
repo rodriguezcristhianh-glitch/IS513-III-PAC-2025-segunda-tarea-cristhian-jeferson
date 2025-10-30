@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/src/shared/utils.dart';
 
-class Login extends StatefulWidget 
+class SignIn extends StatefulWidget 
 {
-  const Login({super.key});
+  const SignIn({super.key});
   @override
-  State<Login> createState() => _LoginState();
+  State<SignIn> createState() => _SignIn();
   
 }
 
-class _LoginState extends State<Login> 
+class _SignIn extends State<SignIn> 
 {
   //final userInput = TextField();
   Map<String, String> users = {
@@ -26,8 +26,8 @@ class _LoginState extends State<Login>
   };
 
   Color _color = Colors.black;
-  final userController = TextEditingController(); 
-  
+  final userController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final RegExp userRegex = RegExp(r'^[\w\.-]+@unah\.hn$');
   final RegExp passwordRegex = RegExp(r'^(?=.[!@#$%^&(),.?":{}|<>_]).{6,}$');
@@ -64,14 +64,14 @@ class _LoginState extends State<Login>
         crossAxisAlignment: CrossAxisAlignment.center,
         children: 
         [
-          Text("Login", style: TextStyle(color: const Color.fromARGB(218, 3, 49, 58), fontWeight: FontWeight.bold, fontSize: 34, letterSpacing: 7)),
+          Text("SignIn", style: TextStyle(color: const Color.fromARGB(218, 3, 49, 58), fontWeight: FontWeight.bold, fontSize: 34, letterSpacing: 7)),
           SizedBox(height: 30),
           // Logica del usuario
           Text("Email", style: TextStyle(color: const Color.fromARGB(218, 3, 49, 58), fontWeight: FontWeight.bold, fontSize: 25, letterSpacing: 7)),
           SizedBox(height: 8),
           TextField(
             focusNode: userFocus,
-            controller: userController,
+            controller: emailController,
             style: TextStyle(color: _color),
             decoration: InputDecoration(
               //label: Text('User'),
@@ -88,6 +88,26 @@ class _LoginState extends State<Login>
           ),
 
           SizedBox( height: 35),
+
+          Text("Email", style: TextStyle(color: const Color.fromARGB(218, 3, 49, 58), fontWeight: FontWeight.bold, fontSize: 25, letterSpacing: 7)),
+          SizedBox(height: 8),
+          TextField(
+            focusNode: userFocus,
+            controller: emailController,
+            style: TextStyle(color: _color),
+            decoration: InputDecoration(
+              //label: Text('User'),
+              hint: Text('Example: lismy.ramos@unah.hn'),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              //prefixIcon: Icon(Icons.text_fields_rounded),
+            ),
+            maxLines: 1,
+            maxLength: 50,
+            obscureText: false,
+            keyboardType: TextInputType.text, // Cambiado aquí
+          ),
 
           // Logica de la contraseña
           Text("Password", style: TextStyle(color: const Color.fromARGB(218, 3, 49, 58), fontWeight: FontWeight.bold, fontSize: 25, letterSpacing: 7)),
@@ -137,7 +157,7 @@ class _LoginState extends State<Login>
                   if (element.value == passwordController.text) 
                   {
                     print("Sign up exitoso");
-                    print("Usuario: ${userController.text}");
+                    print("Usuario: ${emailController.text}");
                     print("Contraseña: ${passwordController.text}");
 
                     //context.pop();
@@ -172,7 +192,7 @@ class _LoginState extends State<Login>
       ),
       SizedBox(height: 20),
       Text("You don't have an account yet? Create your account", style: TextStyle(color: const Color.fromARGB(218, 3, 49, 58), fontWeight: FontWeight.bold, fontSize: 16)),
-      TextButton(onPressed: (){context.goNamed("signin");}, child: Text('here.', style: TextStyle(color: Colors.blue, fontSize: 16))),
+      TextButton(onPressed: (){}, child: Text('here.', style: TextStyle(color: Colors.blue, fontSize: 16))),
       ],
       ),
     );
@@ -180,24 +200,5 @@ class _LoginState extends State<Login>
 }
 
 /* Para el Login
-TextButton(
-            onPressed: () 
-            {
-              if (userRegex.hasMatch(userController.text) && passwordRegex.hasMatch(passwordController.text)) // En caso de cumplir con los requerimientos
-              {
-                print("Login exitoso");
-                print("Usuario: ${userController.text}");
-                print("Contraseña: ${passwordController.text}");
 
-                //context.pop();
-                context.go('/todos');
-              }
-              else
-              {
-                // Mostramos los bordes del TextField en rojo e indicamos los posibles errores del usuario
-                setState(() 
-                {
-                  _color = Colors.red;
-                  //userController.selection.;
-                });
 */
