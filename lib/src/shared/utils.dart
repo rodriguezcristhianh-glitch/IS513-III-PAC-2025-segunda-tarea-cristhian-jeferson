@@ -3,11 +3,12 @@ import 'package:go_router/go_router.dart';
 
 class Utils 
 {
+  
   static TextField buildTextField
   ({
-    //required FocusNode focusNode,
     required TextEditingController controller,
     required String hintText,
+    TextInputType? type,
     bool obscureText = false,
     Widget? suffixIcon,
     Color borderColor = Colors.black,
@@ -17,7 +18,6 @@ class Utils
   {
     return TextField
     (
-      //focusNode: focusNode,
       controller: controller,
       obscureText: obscureText,
       style: TextStyle(color: textColor),
@@ -34,9 +34,13 @@ class Utils
           borderSide: BorderSide(color: borderColor, width: 2),
         ),
         suffixIcon: suffixIcon,
+        filled: true,
+        fillColor: Colors.white,
       ),
+      keyboardType: type,
     );
   }
+
 
 
   static showSnackBar({required BuildContext context, required String title, Color? color}) 

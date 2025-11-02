@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget
     (
       routerConfig: GoRouter
       (
-        initialLocation: '/todos',
+        initialLocation: '/login',
         routes: 
-        [
+        [ 
           GoRoute(
             path: '/login',
             name: 'login',
