@@ -2,6 +2,6 @@
 
 
 ## Integrantes:
-Jeferson Alexander Reyes López 20242000327
-Cristhian Anibal Rodriguez Hernandez 20242000630
+Jeferson Alexander Reyes López 20242000327 ||
+Cristhian Anibal Rodriguez Hernandez 20242000639
 
